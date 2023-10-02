@@ -7,13 +7,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Login to Github Container Registry
-        uses:
+        uses: docker/login-action@v1
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build the hello-docker image
-        run:
+        run: |
           docker build . --tag ghcr.io/blacksquadman1/docker:latest
           docker run ghcr.io/blacksquadman1/docker:latest
           docker push ghcr.io/blacksquadman1/docker:latest
