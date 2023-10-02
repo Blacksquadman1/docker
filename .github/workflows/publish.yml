@@ -1,0 +1,19 @@
+#publish your docker image to github container registry
+name: publish
+on: [push]
+jobs:
+  publish-hello-docker-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login to Github Container Registry
+        uses:
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build the hello-docker image
+        run:
+          docker build . --tag ghcr.io/blacksquadman1/docker:latest
+          docker run ghcr.io/blacksquadman1/docker:latest
+          docker push ghcr.io/blacksquadman1/docker:latest
