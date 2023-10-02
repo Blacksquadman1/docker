@@ -1,6 +1,6 @@
 FROM        --platform=$TARGETOS/$TARGETARCH python:3.11-slim
 
-LABEL       author="Michael Parker" maintainer="parker@pterodactyl.io"
+LABEL       author="Blacksquadman1" maintainer=""
 
 RUN         apt update \
             && apt -y install git gcc g++ ca-certificates pkg-config default-libmysqlclient-dev dnsutils curl iproute2 ffmpeg procps \
