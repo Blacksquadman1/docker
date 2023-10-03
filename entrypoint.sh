@@ -4,7 +4,7 @@ cd /home/container
 # Make internal Docker IP address available to processes.
 INTERNAL_IP=$(ip route get 1 | awk '{print $(NF-2);exit}')
 export INTERNAL_IP
-export VSCODE_PROXY_URI=https://vscode.gamingbaeren.de:{{port}}
+export VSCODE_PROXY_URI=https://195.20.227.48:{{port}}
 # Print current Python version
 python --version
 
